@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/app_colors.dart';
 
 class SearchTab extends StatelessWidget {
   static const String routeName = 'search_tab';
@@ -7,8 +8,13 @@ class SearchTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.orange,
+    return Stack(
+      children: [
+        Container(      color: AppColors.primaryColor,
+        )
+
+      ],
+
     );
   }
 }
