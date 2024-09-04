@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:movies/API/api_manager_search.dart';
 import 'package:movies/Model/MovieSearch.dart';
 import 'package:movies/Tabs/Search/MoviesItem.dart';
 import 'package:movies/app_colors.dart'; // Ensure this path is correct
+
 
 class SearchTab extends StatefulWidget {
   static const String routeName = 'search_tab';
@@ -22,6 +24,7 @@ class _SearchTabState extends State<SearchTab> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       appBar: PreferredSize(
@@ -133,7 +136,7 @@ class _SearchTabState extends State<SearchTab> {
           // ),
         ],
       ),
-    );
+
   }
 
   void searchForMovies(String query) {
