@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:movies/Tabs/Browse/api/api_constants.dart';
 import 'package:movies/model/ResponseBrowse.dart';
+
 import 'package:movies/model/ResponseGenresMovies.dart';
 import 'package:http/http.dart' as http;
 class ApiBrowseManager {
