@@ -4,6 +4,6 @@ class ApiBrowseConstants{
   static const String baseUrl ='api.themoviedb.org';
   static const String sourceApi ='/3/genre/movie/list';
   static const String genresmoviesapi ='/3/discover/movie';
-  static const String apiKey ='bbbf50b28b32a9dcbfe04a0e8de215d0';
+  static const String apiKey ='978025e4f8f47c6871b8ab37fba1fa71';
 
 }
