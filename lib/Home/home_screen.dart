@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/Tabs/Browse/browse_tab.dart';
-import 'package:movies/Tabs/HomeTab/home_tab.dart';
 import 'package:movies/Tabs/HomeTab/hometabnew.dart';
-import 'package:movies/Tabs/Search/Draft.dart';
-import 'package:movies/Tabs/Search/search_tab.dart';
+import 'package:movies/Tabs/Search/search_main_tab.dart';
 import 'package:movies/Tabs/WatchList/watchlist_tab.dart';
 import 'package:movies/app_colors.dart';
 
@@ -22,9 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // List of tabs for navigation
   List<Widget> tabs = [
     HomeTabNew(),
-    // HomeTab(),
-    Draft(),
-    SearchTab(),
+    SearchMainTab(),
     BrowseTab(),
     WatchListTab(),
   ];

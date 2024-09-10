@@ -8,5 +8,9 @@ class AppColors {
   static const Color lightgreyColor = Color(0xffB5B4B4);
   static const Color darkgreyColor = Color(0xff282A28);
   static const Color bottomnavigation = Color(0xff1A1A1A);
+  static const Color itemRecommended = Color(0xff343534);
+
+
+
 
 }

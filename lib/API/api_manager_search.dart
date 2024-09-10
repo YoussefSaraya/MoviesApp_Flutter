@@ -17,13 +17,15 @@ https://api.themoviedb.org/3/search/movie  */
     Uri url = Uri.http(ApiConstants.baseUrl, ApiConstants.SearchedMoviesUrl,
         {
           'api_key':ApiConstants.apiKey,
-          'title': query
+          'query':query
 
         }
     );
     try {
       var response = await http.get(url);
       var responseBody = response.body;
+      print('getSearchedMovie $responseBody');
+
       var json = jsonDecode(responseBody);
 
 
@@ -38,4 +40,5 @@ https://api.themoviedb.org/3/search/movie  */
       throw e;
     }
   }
+
 }
