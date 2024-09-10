@@ -35,7 +35,7 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
           } else if (snapshot.hasError) {
             return Column(
               children: [
-                Text('Something went wrong'),
+                Text('Something went wrong',style: TextStyle(color: AppColors.whiteColor)),
                 ElevatedButton(
                     onPressed: () {
                       ApiManagerHomeScreen.getNewReleasesMovie();
@@ -49,9 +49,9 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
           ///server=> success,error
           if (snapshot.hasData) {
             return Padding(
-              padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.08),
+              padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.01),
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.2102,
+                height: MediaQuery.of(context).size.height * 0.202,
                   color: AppColors.darkgreyColor
                 ,
                 child: Column(
@@ -66,8 +66,8 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
                         widget.headLineText,
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
 
-                            fontSize: 15,
-                            color: AppColors.whiteColor),
+                            fontSize: 20,
+                            color: AppColors.whiteColor,fontWeight: FontWeight.w500),
                       ),
                     ),
                     Expanded(

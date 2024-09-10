@@ -32,7 +32,7 @@ class _SliderMoviesState extends State<SliderMovies> {
           } else if (snapshot.hasError) {
             return Column(
               children: [
-                Text('Something went wrong'),
+                Text('Something went wrong',style: TextStyle(color: AppColors.whiteColor)),
                 ElevatedButton(
                     onPressed: () {
                       ApiManagerHomeScreen.getPopularMovies();

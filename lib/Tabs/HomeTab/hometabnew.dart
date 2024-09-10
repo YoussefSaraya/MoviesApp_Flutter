@@ -10,7 +10,6 @@ import 'package:movies/Tabs/HomeTab/Slider.dart';
 import 'package:movies/Tabs/HomeTab/movie_card_widget.dart';
 import 'package:movies/Tabs/HomeTab/movie_card_widget_Popular.dart';
 import 'package:movies/Tabs/HomeTab/movie_card_widget_recommended.dart';
-import 'package:movies/Tabs/HomeTab/movie_card_widget_testttt.dart';
 import 'package:movies/app_colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 

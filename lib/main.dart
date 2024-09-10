@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies/Home/home_screen.dart';
 import 'package:movies/Tabs/Browse/browse_tab.dart';
-import 'package:movies/Tabs/HomeTab/home_tab.dart';
 import 'package:movies/Tabs/HomeTab/hometabnew.dart';
-import 'package:movies/Tabs/Search/Draft.dart';
-import 'package:movies/Tabs/Search/search_tab.dart';
+import 'package:movies/Tabs/Search/search_main_tab.dart';
 void main() {
   runApp(
       MyApp());
@@ -21,9 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
         HomeTabNew.routeName:(context) => HomeTabNew(),
-        // HomeTab.routeName: (context) => HomeTab(),
-        Draft.routeName:(context) => Draft(),
-        SearchTab.routeName: (context) => SearchTab(),
+        SearchMainTab.routeName: (context) => SearchMainTab(),
         BrowseTab.routeName: (context) => BrowseTab()
       },
     );
