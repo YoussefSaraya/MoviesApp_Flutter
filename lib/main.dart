@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
-        HomeTabNew.routeName:(context) => HomeTabNew(),
+      //  HomeTabNew.routeName:(context) => HomeTabNew(),
         // HomeTab.routeName: (context) => HomeTab(),
         Draft.routeName:(context) => Draft(),
         SearchTab.routeName: (context) => SearchTab(),
