@@ -21,9 +21,11 @@ class _SearchMainTabState extends State<SearchMainTab> {
   TextEditingController controller = TextEditingController();
 
 
+
   @override
   Widget build(BuildContext context) {
     String imageUrl = 'https://image.tmdb.org/t/p/w500';
+
     return Scaffold(
         backgroundColor: AppColors.primaryColor,
         body: Column(children: [

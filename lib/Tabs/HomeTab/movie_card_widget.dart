@@ -4,20 +4,23 @@ import 'package:movies/API/api_constants.dart';
 import 'package:movies/API/api_manager_homescreen.dart';
 import 'package:movies/Model/NewReleasesModel.dart';
 import 'package:movies/Model/PopularMoviesModel.dart';
+import 'package:movies/Tabs/Details/movie_details.dart';
+import 'package:movies/Tabs/HomeTab/new_releases_widget.dart';
 import 'package:movies/app_colors.dart';
 
-class MovieCardWidget extends StatefulWidget {
+class NewReleasesMovieCardWidget extends StatefulWidget {
   final Future<NewReleasesModel?> future;
   final String headLineText;
 
-  const MovieCardWidget({required this.future, required this.headLineText});
+  const NewReleasesMovieCardWidget({required this.future, required this.headLineText});
 
   @override
-  State<MovieCardWidget> createState() => _MovieCardWidgetState();
+  State<NewReleasesMovieCardWidget> createState() => _NewReleasesMovieCardWidgetState();
 }
 
-class _MovieCardWidgetState extends State<MovieCardWidget> {
+class _NewReleasesMovieCardWidgetState extends State<NewReleasesMovieCardWidget> {
   @override
+
   Widget build(BuildContext context) {
     const String imageUrl = "https://image.tmdb.org/t/p/w500";
 
@@ -45,6 +48,8 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
               ],
             );
           }
+          var list = snapshot.data!.results!;
+
 
           ///server=> success,error
           if (snapshot.hasData) {
@@ -78,16 +83,8 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
 
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                child: CachedNetworkImage(
-
-                                  imageUrl: "$imageUrl${data?[index].posterPath}",
-                                ),
-                              ),
-                            );
+                            var results = list[index];
+                            return NewReleasesWidget(results: results);
                           }),
                     )
                   ],

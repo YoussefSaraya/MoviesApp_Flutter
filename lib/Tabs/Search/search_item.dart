@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/Model/MovieSearch.dart';
+import 'package:movies/Model/genres_response.dart';
+import 'package:movies/Tabs/Details/movie_details.dart';
 import 'package:movies/app_colors.dart';
 
 class SearchItem extends StatelessWidget {
@@ -8,13 +10,16 @@ class SearchItem extends StatelessWidget {
 
   final Future<MovieSearch?>? movies;
 
-  @override
+
+
+   @override
   Widget build(BuildContext context) {
     String imageUrl = 'https://image.tmdb.org/t/p/w500';
 
     return FutureBuilder(
         future: movies,
         builder: (context, snapshot) {
+          var genres = snapshot.data?.results ?? [];
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
                 child: CircularProgressIndicator(
@@ -48,11 +53,11 @@ class SearchItem extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () {
-                      // Navigator.push(
-                      // context,
-                      // MaterialPageRoute(
-                      // builder: (context) =>
-                      // DetailsScreen(moviesId: movie.id)));
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) =>
+                      MoviesDetailsScreen(movieId:movie.id)));
                     },
                     child: Row(
                       children: [

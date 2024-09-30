@@ -49,8 +49,8 @@ class _HomeTabNewState extends State<HomeTabNew> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
           ),
-           MovieCardWidget(future: newReleases, headLineText: "New Releases"),
-          MovieCardWidgetRecommended(future: recommended, headLineText: "Recommended")
+           NewReleasesMovieCardWidget(future: newReleases, headLineText: "New Releases"),
+          RecommendedMovieCardWidget(future: recommended, headLineText: "Recommended")
           // Container(
           //   height: MediaQuery.of(context).size.height * 0.25,
           //   color: AppColors.darkgreyColor,

@@ -2,20 +2,21 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/API/api_manager_homescreen.dart';
 import 'package:movies/Model/TopRatedMoviesModel.dart';
+import 'package:movies/Tabs/HomeTab/recommended_widget.dart';
 import 'package:movies/app_colors.dart';
 
-class MovieCardWidgetRecommended extends StatefulWidget {
+class RecommendedMovieCardWidget extends StatefulWidget {
   final Future<TopRatedMoviesModel?> future;
   final String headLineText;
 
-  const MovieCardWidgetRecommended(
+  const RecommendedMovieCardWidget(
       {required this.future, required this.headLineText});
 
   @override
-  State<MovieCardWidgetRecommended> createState() => _MovieCardWidgetState();
+  State<RecommendedMovieCardWidget> createState() => _MovieCardWidgetState();
 }
 
-class _MovieCardWidgetState extends State<MovieCardWidgetRecommended> {
+class _MovieCardWidgetState extends State<RecommendedMovieCardWidget> {
   @override
   Widget build(BuildContext context) {
     const String imageUrl = "https://image.tmdb.org/t/p/w500";
@@ -47,6 +48,8 @@ class _MovieCardWidgetState extends State<MovieCardWidgetRecommended> {
               ],
             );
           }
+          var list = snapshot.data!.results!;
+
 
           if (snapshot.hasData) {
             return Padding(
@@ -78,72 +81,9 @@ class _MovieCardWidgetState extends State<MovieCardWidgetRecommended> {
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.25,
-                              decoration: BoxDecoration(
-                                color: AppColors.itemRecommended,
-                                borderRadius: BorderRadius.circular(10),  // Match the border radius of the image
-                              ),
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),  // Same border radius as the container
-                                    child: CachedNetworkImage(
-                                      alignment: Alignment.center,
-                                      imageUrl: "$imageUrl${data?[index].posterPath}",
-                                      height: MediaQuery.of(context).size.width * 0.25 * 1.2,  // Adjust height dynamically based on width
-                                      width: double.infinity,  // Ensure it covers full width of the container
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Row(
-                                    children: [
-                                      Icon(Icons.star, color: AppColors.goldColor),
-                                      SizedBox(width: MediaQuery.of(context).size.width*0.001,),
-                                      Text(
-                                        textAlign: TextAlign.start,
-                                        "${data?[index].voteAverage?.toStringAsFixed(1) ?? "N/A"}",
-                                        style: TextStyle(
-                                          color: AppColors.whiteColor,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
+                          var results = list[index];
 
-                                    textAlign: TextAlign.start,
-                                    data?[index].title ?? "Unknown",
-                                    style: TextStyle(
-                                      color: AppColors.whiteColor,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  Text(
-                                    textAlign: TextAlign.start,
-                                    // Extract the year part from the release date, or display "N/A" if it's null
-                                    data?[index].releaseDate != null
-                                        ? "${DateTime.parse(data?[index].releaseDate ?? "").year}"
-                                        : "N/A",
-                                    style: TextStyle(
-                                      color: AppColors.whiteColor,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-
-                                ],
-                              ),
-                            ),
-
-
-                          );
+                          return RecommendedWidget(results: results);
                         },
                       ),
                     ),

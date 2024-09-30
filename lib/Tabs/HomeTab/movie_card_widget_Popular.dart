@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/API/api_constants.dart';
 import 'package:movies/API/api_manager_homescreen.dart';
 import 'package:movies/Model/PopularMoviesModel.dart';
+import 'package:movies/Tabs/Details/movie_details.dart';
 import 'package:movies/app_colors.dart';
 
 class MovieCardWidgetPopular extends StatelessWidget {
@@ -43,6 +44,11 @@ class MovieCardWidgetPopular extends StatelessWidget {
       child: ClipRRect(
       borderRadius: BorderRadius.circular(8),
       child: GestureDetector(onTap: (){
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    MoviesDetailsScreen(movieId: results.id)));
 
       },
       child: CachedNetworkImage(
